@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnhejpbf2qwv1"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_vgu8f"]
+[ext_resource type="Texture2D" uid="uid://jp2aqrix4w6x" path="res://Assets/Sprites/rata-1.png" id="2_3c0s7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ccee7"]
+bg_color = Color(0.20868, 2.00043e-07, 2.40654e-08, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_444o2"]
+bg_color = Color(0, 0.298039, 0, 1)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n5uha"]
+radius = 32.5
+height = 138.0
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 1
+collision_mask = 7
+script = ExtResource("1_vgu8f")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(2.24, 2.24)
+zoom = Vector2(0.3, 0.3)
+position_smoothing_enabled = true
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -163.0
+offset_top = -160.0
+offset_right = 170.0
+offset_bottom = -129.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ccee7")
+theme_override_styles/fill = SubResource("StyleBoxFlat_444o2")
+value = 100.0
+show_percentage = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_3c0s7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_n5uha")
+
+[node name="lookPivot" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(34, 0)
+
+[node name="RayCast2D" type="RayCast2D" parent="lookPivot"]
+target_position = Vector2(500, 0)
