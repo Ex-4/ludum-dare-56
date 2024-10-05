@@ -2,21 +2,26 @@ extends CharacterBody2D
 
 #signal health_depleted
 
-var last_direction
 var health = 5.0
-var direction
+var food = 0
 
 func _ready():
 	pass
-	#$HealthBar.set_max(health)
+	$InfectPrompt.hide()
+	%HUD.set_health(health)
 
 func _process(delta):
 	pass
-	#if last_direction:
-		#$Sprite2D.rotation = last_direction
+	if %RayCast2D.is_colliding() && %RayCast2D.get_collision_mask_value(2) && %RayCast2D.get_collider().infected == false:
+		$InfectPrompt.show()
+		if Input.is_action_just_pressed("interact"):
+			var obj = %RayCast2D.get_collider()
+			obj.perform_action()
+	else:
+		$InfectPrompt.hide()		
 
 func _physics_process(delta):
-	direction = Input.get_vector("move_left", "move_right", 
+	var direction = Input.get_vector("move_left", "move_right", 
 	"move_up", "move_down") #wasd
 	
 	#	rotating the player sprite when moving
@@ -38,6 +43,9 @@ func _input(event):
 
 func take_damage():
 	health-=1
-	$HealthBar.value = health
+	%HUD.update_health(health)
 	if health <= 0:
 		pass
+
+func update_food(num):
+	food += num

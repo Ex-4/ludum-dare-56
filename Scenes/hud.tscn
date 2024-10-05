@@ -1,0 +1,92 @@
+[gd_scene load_steps=8 format=3 uid="uid://lc5glgte4gbf"]
+
+[ext_resource type="Script" path="res://Scripts/hud.gd" id="1_q06g3"]
+[ext_resource type="FontFile" uid="uid://bo6pw8nk0pcuh" path="res://Assets/Fonts/EightBitDragon-anqx.ttf" id="1_yu8ue"]
+[ext_resource type="Texture2D" uid="uid://b4a21l8p123f2" path="res://Assets/Sprites/heart.png" id="3_0t5ql"]
+[ext_resource type="Texture2D" uid="uid://bxh3gl0mvuxvw" path="res://Assets/Sprites/food.png" id="4_shi78"]
+[ext_resource type="Texture2D" uid="uid://doqm46jvfyyp2" path="res://Assets/Sprites/marked door.png" id="5_iutxx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wardk"]
+bg_color = Color(0.20868, 2.00043e-07, 2.40654e-08, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wgash"]
+bg_color = Color(0, 0.298039, 0, 1)
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_q06g3")
+
+[node name="FoodScore" type="Label" parent="."]
+texture_filter = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -119.0
+offset_top = 40.0
+offset_right = -74.0
+offset_bottom = 105.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("1_yu8ue")
+theme_override_font_sizes/font_size = 32
+text = "0
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HouseScore" type="Label" parent="."]
+texture_filter = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -197.0
+offset_top = 102.0
+offset_right = -152.0
+offset_bottom = 167.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("1_yu8ue")
+theme_override_font_sizes/font_size = 32
+text = "0
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TotalHouses" type="Label" parent="."]
+texture_filter = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -148.0
+offset_top = 102.0
+offset_right = -58.0
+offset_bottom = 167.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("1_yu8ue")
+theme_override_font_sizes/font_size = 32
+text = "/ 02
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = 917.0
+offset_top = 12.0
+offset_right = 1081.0
+offset_bottom = 41.0
+theme_override_styles/background = SubResource("StyleBoxFlat_wardk")
+theme_override_styles/fill = SubResource("StyleBoxFlat_wgash")
+value = 100.0
+show_percentage = false
+
+[node name="Heart" type="Sprite2D" parent="."]
+position = Vector2(1118, 27)
+scale = Vector2(0.28125, 0.28125)
+texture = ExtResource("3_0t5ql")
+
+[node name="Food" type="Sprite2D" parent="."]
+position = Vector2(1111, 74)
+scale = Vector2(0.539063, 0.539063)
+texture = ExtResource("4_shi78")
+
+[node name="MarkedDoor" type="Sprite2D" parent="."]
+position = Vector2(1113, 131)
+scale = Vector2(0.395833, 0.395833)
+texture = ExtResource("5_iutxx")

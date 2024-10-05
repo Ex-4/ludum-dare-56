@@ -1,50 +1,48 @@
-[gd_scene load_steps=6 format=3 uid="uid://dnhejpbf2qwv1"]
+[gd_scene load_steps=4 format=3 uid="uid://dnhejpbf2qwv1"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_vgu8f"]
 [ext_resource type="Texture2D" uid="uid://jp2aqrix4w6x" path="res://Assets/Sprites/rata-1.png" id="2_3c0s7"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ccee7"]
-bg_color = Color(0.20868, 2.00043e-07, 2.40654e-08, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_444o2"]
-bg_color = Color(0, 0.298039, 0, 1)
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n5uha"]
 radius = 32.5
-height = 138.0
+height = 153.333
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 1
+scale = Vector2(0.3, 0.3)
 collision_mask = 7
 script = ExtResource("1_vgu8f")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(2.24, 2.24)
-zoom = Vector2(0.3, 0.3)
 position_smoothing_enabled = true
-
-[node name="HealthBar" type="ProgressBar" parent="."]
-offset_left = -163.0
-offset_top = -160.0
-offset_right = 170.0
-offset_bottom = -129.0
-theme_override_styles/background = SubResource("StyleBoxFlat_ccee7")
-theme_override_styles/fill = SubResource("StyleBoxFlat_444o2")
-value = 100.0
-show_percentage = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("2_3c0s7")
 
+[node name="RayCast2D" type="RayCast2D" parent="Sprite2D"]
+unique_name_in_owner = true
+target_position = Vector2(173.333, 0)
+collision_mask = 2
+collide_with_areas = true
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8, 1)
+y_sort_enabled = true
+position = Vector2(13.3333, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_n5uha")
 
-[node name="lookPivot" type="Marker2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(34, 0)
+[node name="InfectPrompt" type="Label" parent="."]
+z_index = 5
+y_sort_enabled = true
+texture_filter = 1
+offset_left = -293.333
+offset_top = 60.0
+offset_right = 295.667
+offset_bottom = 197.0
+theme_override_font_sizes/font_size = 100
+text = "E to Infect"
 
-[node name="RayCast2D" type="RayCast2D" parent="lookPivot"]
-target_position = Vector2(500, 0)
+[node name="ActionTimer" type="Timer" parent="."]
+wait_time = 3.0

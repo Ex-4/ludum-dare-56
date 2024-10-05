@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5pe45hnq76wg"]
+
+[ext_resource type="PackedScene" uid="uid://ijmr6ummvu8a" path="res://Scenes/house.tscn" id="1_8hrm1"]
+[ext_resource type="PackedScene" uid="uid://dnhejpbf2qwv1" path="res://Scenes/Player.tscn" id="2_2rctd"]
+[ext_resource type="PackedScene" uid="uid://lc5glgte4gbf" path="res://Scenes/hud.tscn" id="3_minkm"]
+
+[node name="MainLevel" type="Node2D"]
+
+[node name="House" parent="." instance=ExtResource("1_8hrm1")]
+position = Vector2(106, 133)
+
+[node name="Player" parent="." instance=ExtResource("2_2rctd")]
+unique_name_in_owner = true
+position = Vector2(576, 144)
+
+[node name="HUD" parent="." instance=ExtResource("3_minkm")]
+unique_name_in_owner = true
