@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bgqvx8equimfy" path="res://Assets/Sprites/house infected.png" id="3_fc003"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_knmkd"]
-size = Vector2(151.111, 192.889)
+size = Vector2(154.667, 197.333)
 
 [node name="House" type="StaticBody2D"]
 z_index = 1
@@ -29,3 +29,6 @@ texture = ExtResource("3_fc003")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

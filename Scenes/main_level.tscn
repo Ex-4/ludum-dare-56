@@ -1,13 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5pe45hnq76wg"]
+[gd_scene load_steps=5 format=3 uid="uid://c5pe45hnq76wg"]
 
 [ext_resource type="PackedScene" uid="uid://ijmr6ummvu8a" path="res://Scenes/house.tscn" id="1_8hrm1"]
+[ext_resource type="Texture2D" uid="uid://b4nmmhoki3qn4" path="res://Assets/Sprites/Map-1.png" id="1_xii2o"]
 [ext_resource type="PackedScene" uid="uid://dnhejpbf2qwv1" path="res://Scenes/Player.tscn" id="2_2rctd"]
 [ext_resource type="PackedScene" uid="uid://lc5glgte4gbf" path="res://Scenes/hud.tscn" id="3_minkm"]
 
 [node name="MainLevel" type="Node2D"]
 
+[node name="Map-1" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(533, 229)
+scale = Vector2(6.30143, 6.30143)
+texture = ExtResource("1_xii2o")
+
 [node name="House" parent="." instance=ExtResource("1_8hrm1")]
-position = Vector2(106, 133)
+position = Vector2(216, -65)
+scale = Vector2(1, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_2rctd")]
 unique_name_in_owner = true
@@ -15,3 +23,39 @@ position = Vector2(576, 144)
 
 [node name="HUD" parent="." instance=ExtResource("3_minkm")]
 unique_name_in_owner = true
+
+[node name="House2" parent="." instance=ExtResource("1_8hrm1")]
+position = Vector2(1290, -421)
+scale = Vector2(1, 1)
+
+[node name="House3" parent="." instance=ExtResource("1_8hrm1")]
+position = Vector2(140, 950)
+scale = Vector2(1, 1)
+
+[node name="House4" parent="." instance=ExtResource("1_8hrm1")]
+position = Vector2(1181, -26)
+rotation = 1.5708
+scale = Vector2(1, 1)
+
+[node name="House5" parent="." instance=ExtResource("1_8hrm1")]
+position = Vector2(791, -279)
+scale = Vector2(1, 1)
+
+[node name="House6" parent="." instance=ExtResource("1_8hrm1")]
+position = Vector2(899, -688)
+rotation = 0.373016
+scale = Vector2(1, 1)
+
+[node name="House7" parent="." instance=ExtResource("1_8hrm1")]
+position = Vector2(1406, -708)
+rotation = 1.5708
+scale = Vector2(1, 1)
+
+[node name="House8" parent="." instance=ExtResource("1_8hrm1")]
+position = Vector2(1456, 335)
+rotation = 1.5708
+scale = Vector2(1, 1)
+
+[node name="House9" parent="." instance=ExtResource("1_8hrm1")]
+position = Vector2(1491, 47)
+scale = Vector2(1, 1)

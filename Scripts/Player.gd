@@ -4,21 +4,21 @@ extends CharacterBody2D
 
 var health = 5.0
 var food = 0
+var house_inrange = false
 
 func _ready():
 	pass
 	$InfectPrompt.hide()
 	%HUD.set_health(health)
 
-func _process(delta):
-	pass
+func _process(delta):	
+	# checking for houses, prompting to infect =
 	if %RayCast2D.is_colliding() && %RayCast2D.get_collision_mask_value(2) && %RayCast2D.get_collider().infected == false:
 		$InfectPrompt.show()
-		if Input.is_action_just_pressed("interact"):
-			var obj = %RayCast2D.get_collider()
-			obj.perform_action()
+		house_inrange = true
 	else:
-		$InfectPrompt.hide()		
+		$InfectPrompt.hide()	
+		house_inrange = false	
 
 func _physics_process(delta):
 	var direction = Input.get_vector("move_left", "move_right", 
@@ -38,9 +38,12 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _input(event):
-
-	pass
-
+	if Input.is_action_pressed("interact") && house_inrange:
+		$InfectPrompt.text = "Infecting.."		
+		var obj = %RayCast2D.get_collider()
+		obj.perform_action()
+	else:
+		$InfectPrompt.text = "E to Infect"	
 func take_damage():
 	health-=1
 	%HUD.update_health(health)
