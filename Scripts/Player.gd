@@ -13,8 +13,8 @@ func _ready():
 	%HUD.set_health(health)
 
 func _process(delta):	
-	# checking for houses, prompting to infect =
-	if %RayCast2D.is_colliding() && %RayCast2D.get_collision_mask_value(2) && %RayCast2D.get_collider().infected == false:
+	# checking for houses, prompting to infect 
+	if %RayCast2D.is_colliding() && %RayCast2D.get_collision_mask_value(3) && %RayCast2D.get_collider().infected == false:
 		%HUD.show_prompt()
 		house_inrange = true
 	else:
