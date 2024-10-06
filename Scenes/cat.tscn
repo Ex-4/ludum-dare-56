@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://caykrd7oei02t"]
+[gd_scene load_steps=16 format=3 uid="uid://caykrd7oei02t"]
 
 [ext_resource type="Script" path="res://Scripts/cat.gd" id="1_cw0y0"]
 [ext_resource type="Texture2D" uid="uid://dm4tgo23rdpbp" path="res://Assets/Sprites/cat.png" id="1_iqk8k"]
@@ -15,34 +15,6 @@ height = 80.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4vhne"]
 radius = 24.0
 height = 154.0
-
-[sub_resource type="Animation" id="Animation_n7vbg"]
-resource_name = "idle"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D/armPivot:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-3.26927]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D/armPivot:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.0333333),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_de324"]
 length = 0.001
@@ -113,12 +85,50 @@ tracks/2/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_n7vbg"]
+resource_name = "idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D/armPivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-3.26927]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/armPivot:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4nbkj"]
 _data = {
 "RESET": SubResource("Animation_de324"),
 "attack": SubResource("Animation_123fh"),
 "idle": SubResource("Animation_n7vbg")
 }
+
+[sub_resource type="Gradient" id="Gradient_te4xw"]
+offsets = PackedFloat32Array(0, 0.75)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f078d"]
+gradient = SubResource("Gradient_te4xw")
+fill = 1
+fill_from = Vector2(0.493902, 0.512195)
+fill_to = Vector2(1, 0.097561)
 
 [node name="Cat" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
@@ -177,5 +187,9 @@ libraries = {
 "": SubResource("AnimationLibrary_4nbkj")
 }
 autoplay = "idle"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(19, 19)
+texture = SubResource("GradientTexture2D_f078d")
 
 [connection signal="area_entered" from="Sprite2D/armPivot/HitBox" to="State Machine/attack" method="_on_hit_box_area_entered"]

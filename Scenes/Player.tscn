@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnhejpbf2qwv1"]
+[gd_scene load_steps=7 format=3 uid="uid://dnhejpbf2qwv1"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_vgu8f"]
 [ext_resource type="Texture2D" uid="uid://jp2aqrix4w6x" path="res://Assets/Sprites/rata-1.png" id="2_3c0s7"]
@@ -10,6 +10,16 @@ height = 153.333
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ummoe"]
 radius = 32.5
 height = 153.33
+
+[sub_resource type="Gradient" id="Gradient_7f28p"]
+offsets = PackedFloat32Array(0, 0.08, 0.78)
+colors = PackedColorArray(1, 1, 1, 1, 0.871795, 0.871795, 0.871795, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_408m1"]
+gradient = SubResource("Gradient_7f28p")
+fill = 1
+fill_from = Vector2(0.493902, 0.52439)
+fill_to = Vector2(0.146341, 0.530488)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 1
@@ -50,3 +60,9 @@ collision_mask = 7
 position = Vector2(13.3333, -5.68434e-14)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ummoe")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(13.3333, 7.62939e-06)
+scale = Vector2(6.44792, 6.44792)
+energy = 0.8
+texture = SubResource("GradientTexture2D_408m1")
