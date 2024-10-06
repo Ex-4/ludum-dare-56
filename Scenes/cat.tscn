@@ -1,0 +1,181 @@
+[gd_scene load_steps=14 format=3 uid="uid://caykrd7oei02t"]
+
+[ext_resource type="Script" path="res://Scripts/cat.gd" id="1_cw0y0"]
+[ext_resource type="Texture2D" uid="uid://dm4tgo23rdpbp" path="res://Assets/Sprites/cat.png" id="1_iqk8k"]
+[ext_resource type="Script" path="res://Scripts/state_machine.gd" id="2_3ftc6"]
+[ext_resource type="Texture2D" uid="uid://d02sirhradrbl" path="res://Assets/Sprites/Claw-1.png" id="2_ov5vd"]
+[ext_resource type="Script" path="res://Scripts/EnemyIdle.gd" id="3_aviwd"]
+[ext_resource type="Script" path="res://Scripts/EnemyFollow.gd" id="5_5e7p4"]
+[ext_resource type="Script" path="res://Scripts/EnemyAttack.gd" id="7_mk42v"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_luitd"]
+radius = 6.0
+height = 80.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4vhne"]
+radius = 24.0
+height = 154.0
+
+[sub_resource type="Animation" id="Animation_n7vbg"]
+resource_name = "idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D/armPivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-3.26927]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/armPivot:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_de324"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D/armPivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-3.26927]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/armPivot:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_123fh"]
+resource_name = "attack"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D/armPivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.633511, 0.900816]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("State Machine/attack")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"attack_finished"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/armPivot:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4nbkj"]
+_data = {
+"RESET": SubResource("Animation_de324"),
+"attack": SubResource("Animation_123fh"),
+"idle": SubResource("Animation_n7vbg")
+}
+
+[node name="Cat" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+collision_mask = 7
+script = ExtResource("1_cw0y0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+texture = ExtResource("1_iqk8k")
+
+[node name="armPivot" type="Marker2D" parent="Sprite2D"]
+position = Vector2(58, -12)
+rotation = -3.26927
+
+[node name="Claw-1" type="Sprite2D" parent="Sprite2D/armPivot"]
+texture_filter = 1
+position = Vector2(42, -1.90735e-06)
+scale = Vector2(0.416667, 0.416667)
+texture = ExtResource("2_ov5vd")
+
+[node name="HitBox" type="Area2D" parent="Sprite2D/armPivot"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/armPivot/HitBox"]
+position = Vector2(40, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_luitd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_4vhne")
+
+[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_3ftc6")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("3_aviwd")
+enemy = NodePath("../..")
+move_speed = 100.0
+
+[node name="Follow" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("5_5e7p4")
+enemy = NodePath("../..")
+
+[node name="attack" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy", "hitbox")]
+script = ExtResource("7_mk42v")
+enemy = NodePath("../..")
+hitbox = NodePath("../../Sprite2D/armPivot/HitBox")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_4nbkj")
+}
+autoplay = "idle"
+
+[connection signal="area_entered" from="Sprite2D/armPivot/HitBox" to="State Machine/attack" method="_on_hit_box_area_entered"]

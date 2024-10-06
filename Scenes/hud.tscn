@@ -107,3 +107,23 @@ texture = ExtResource("4_shi78")
 position = Vector2(1113, 131)
 scale = Vector2(0.395833, 0.395833)
 texture = ExtResource("5_iutxx")
+
+[node name="InfectPrompt" type="Label" parent="."]
+z_index = 5
+y_sort_enabled = true
+texture_filter = 1
+anchors_preset = -1
+anchor_left = 0.300347
+anchor_top = 0.675926
+anchor_right = 0.699653
+anchor_bottom = 0.753086
+offset_bottom = -3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_yu8ue")
+theme_override_font_sizes/font_size = 50
+text = "Hold E to Infect"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

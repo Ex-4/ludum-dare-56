@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnhejpbf2qwv1"]
+[gd_scene load_steps=4 format=3 uid="uid://dnhejpbf2qwv1"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_vgu8f"]
 [ext_resource type="Texture2D" uid="uid://jp2aqrix4w6x" path="res://Assets/Sprites/rata-1.png" id="2_3c0s7"]
@@ -6,10 +6,6 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n5uha"]
 radius = 32.5
 height = 153.333
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ummoe"]
-radius = 32.5
-height = 153.33
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 1
@@ -37,16 +33,17 @@ position = Vector2(13.3333, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_n5uha")
 
+[node name="InfectPrompt" type="Label" parent="."]
+z_index = 5
+y_sort_enabled = true
+texture_filter = 1
+offset_left = -293.333
+offset_top = 60.0
+offset_right = 295.667
+offset_bottom = 197.0
+theme_override_font_sizes/font_size = 100
+text = "E to Infect"
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
-
-[node name="Body" type="Node" parent="."]
-
-[node name="HitBox" type="Area2D" parent="."]
-collision_mask = 7
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(13.3333, -5.68434e-14)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_ummoe")

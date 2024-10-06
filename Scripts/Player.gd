@@ -5,45 +5,41 @@ extends CharacterBody2D
 var health = 5.0
 var food = 0
 var house_inrange = false
+var speed = 200
 
 func _ready():
 	pass
-	$InfectPrompt.hide()
+	%HUD.hide_prompt()
 	%HUD.set_health(health)
 
 func _process(delta):	
 	# checking for houses, prompting to infect =
 	if %RayCast2D.is_colliding() && %RayCast2D.get_collision_mask_value(2) && %RayCast2D.get_collider().infected == false:
-		$InfectPrompt.show()
+		%HUD.show_prompt()
 		house_inrange = true
 	else:
-		$InfectPrompt.hide()	
+		%HUD.hide_prompt()	
 		house_inrange = false	
+		
 
 func _physics_process(delta):
 	var direction = Input.get_vector("move_left", "move_right", 
 	"move_up", "move_down") #wasd
 	
 	#	rotating the player sprite when moving
-	if Input.is_action_just_pressed("move_left"):
-		$Sprite2D.rotation_degrees = 180
-	elif Input.is_action_just_pressed("move_right"):
-		$Sprite2D.rotation_degrees = 0
-	elif Input.is_action_just_pressed("move_down"):
-		$Sprite2D.rotation_degrees = 90		
-	elif Input.is_action_just_pressed("move_up"):
-		$Sprite2D.rotation_degrees = 270
+	if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right") or Input.is_action_pressed("move_up") or Input.is_action_pressed("move_down"):
+		rotation = atan2(velocity.y, velocity.x)
 			
-	velocity = direction * 400		
+	velocity = direction * speed		
 	move_and_slide()
 
 func _input(event):
 	if Input.is_action_pressed("interact") && house_inrange:
-		$InfectPrompt.text = "Infecting.."		
+		%HUD.update_prompt("Infecting..")	
 		var obj = %RayCast2D.get_collider()
 		obj.perform_action()
 	else:
-		$InfectPrompt.text = "E to Infect"	
+		%HUD.update_prompt("Hold E To Infect")
 func take_damage():
 	health-=1
 	%HUD.update_health(health)

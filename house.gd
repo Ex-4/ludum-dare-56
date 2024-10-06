@@ -10,11 +10,10 @@ func _ready():
 func action():
 	if Input.is_action_pressed("interact"):
 			timeHeld = timeHeld + get_process_delta_time()
-			print_debug(timeHeld)
 	else:
 		timeHeld = 0.0
 		
-	if timeHeld >= 1:
+	if timeHeld >= 0.7:
 		infected = true
 		$HouseSprite.hide()
 		$InfectedSprite.show()

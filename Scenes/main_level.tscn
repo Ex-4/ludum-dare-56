@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5pe45hnq76wg"]
+[gd_scene load_steps=7 format=3 uid="uid://c5pe45hnq76wg"]
 
 [ext_resource type="PackedScene" uid="uid://ijmr6ummvu8a" path="res://Scenes/house.tscn" id="1_8hrm1"]
 [ext_resource type="Texture2D" uid="uid://b4nmmhoki3qn4" path="res://Assets/Sprites/Map-1.png" id="1_xii2o"]
 [ext_resource type="PackedScene" uid="uid://dnhejpbf2qwv1" path="res://Scenes/Player.tscn" id="2_2rctd"]
 [ext_resource type="PackedScene" uid="uid://lc5glgte4gbf" path="res://Scenes/hud.tscn" id="3_minkm"]
+[ext_resource type="PackedScene" uid="uid://caykrd7oei02t" path="res://Scenes/cat.tscn" id="5_ww7ep"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ou4ne"]
 size = Vector2(384.04, 9.04556)
@@ -48,7 +49,7 @@ shape = SubResource("RectangleShape2D_ou4ne")
 
 [node name="Player" parent="." instance=ExtResource("2_2rctd")]
 unique_name_in_owner = true
-position = Vector2(576, 144)
+position = Vector2(-186, 679)
 
 [node name="HUD" parent="." instance=ExtResource("3_minkm")]
 unique_name_in_owner = true
@@ -65,7 +66,7 @@ position = Vector2(1290, -421)
 scale = Vector2(1, 1)
 
 [node name="House3" parent="Houses" instance=ExtResource("1_8hrm1")]
-position = Vector2(140, 950)
+position = Vector2(-60, 851)
 scale = Vector2(1, 1)
 
 [node name="House4" parent="Houses" instance=ExtResource("1_8hrm1")]
@@ -93,5 +94,47 @@ rotation = 1.5708
 scale = Vector2(1, 1)
 
 [node name="House9" parent="Houses" instance=ExtResource("1_8hrm1")]
-position = Vector2(1491, 47)
+position = Vector2(1491, 55)
 scale = Vector2(1, 1)
+
+[node name="House10" parent="Houses" instance=ExtResource("1_8hrm1")]
+position = Vector2(-102, -34)
+rotation = 1.5708
+scale = Vector2(1, 1)
+
+[node name="House11" parent="Houses" instance=ExtResource("1_8hrm1")]
+position = Vector2(-340, 846)
+rotation = 1.5708
+scale = Vector2(1, 1)
+
+[node name="House12" parent="Houses" instance=ExtResource("1_8hrm1")]
+position = Vector2(-259, 1171)
+rotation = 1.5708
+scale = Vector2(1, 1)
+
+[node name="House13" parent="Houses" instance=ExtResource("1_8hrm1")]
+position = Vector2(224, 1136)
+rotation = 1.16064
+scale = Vector2(1, 1)
+
+[node name="House14" parent="Houses" instance=ExtResource("1_8hrm1")]
+position = Vector2(373, 838)
+rotation = 1.5708
+scale = Vector2(1, 1)
+
+[node name="House15" parent="Houses" instance=ExtResource("1_8hrm1")]
+position = Vector2(783, 1063)
+rotation = 3.50462
+scale = Vector2(1, 1)
+
+[node name="House16" parent="Houses" instance=ExtResource("1_8hrm1")]
+position = Vector2(1448, 1016)
+rotation = 1.5708
+scale = Vector2(1, 1)
+
+[node name="House17" parent="Houses" instance=ExtResource("1_8hrm1")]
+position = Vector2(1118, 1157)
+scale = Vector2(1, 1)
+
+[node name="Cat" parent="Houses" instance=ExtResource("5_ww7ep")]
+position = Vector2(1125, 317)

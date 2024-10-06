@@ -18,3 +18,10 @@ func update_health(num):
 
 func set_health(num):
 	$HealthBar.set_max(num)	
+
+func update_prompt(text):
+	$InfectPrompt.text = text
+func show_prompt():
+	$InfectPrompt.show()
+func hide_prompt():
+	$InfectPrompt.hide()
