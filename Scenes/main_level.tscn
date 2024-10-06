@@ -1,13 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://c5pe45hnq76wg"]
+[gd_scene load_steps=9 format=3 uid="uid://c5pe45hnq76wg"]
 
 [ext_resource type="PackedScene" uid="uid://ijmr6ummvu8a" path="res://Scenes/house.tscn" id="1_8hrm1"]
 [ext_resource type="Texture2D" uid="uid://b4nmmhoki3qn4" path="res://Assets/Sprites/Map-1.png" id="1_xii2o"]
 [ext_resource type="PackedScene" uid="uid://dnhejpbf2qwv1" path="res://Scenes/Player.tscn" id="2_2rctd"]
+[ext_resource type="Texture2D" uid="uid://b1bo1qrs1cnh7" path="res://Assets/Sprites/well.png" id="3_ff6eq"]
 [ext_resource type="PackedScene" uid="uid://lc5glgte4gbf" path="res://Scenes/hud.tscn" id="3_minkm"]
 [ext_resource type="PackedScene" uid="uid://caykrd7oei02t" path="res://Scenes/cat.tscn" id="5_ww7ep"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ou4ne"]
 size = Vector2(384.04, 9.04556)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oq4ka"]
+radius = 48.5
 
 [node name="MainLevel" type="Node2D"]
 
@@ -46,6 +50,20 @@ rotation = 1.5708
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map-1/StaticBody2D4"]
 position = Vector2(13.3303, 22.7726)
 shape = SubResource("RectangleShape2D_ou4ne")
+
+[node name="Cat" parent="." instance=ExtResource("5_ww7ep")]
+position = Vector2(1125, 317)
+
+[node name="Well" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(608, 154)
+scale = Vector2(2, 2)
+texture = ExtResource("3_ff6eq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Well"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Well/StaticBody2D"]
+shape = SubResource("CircleShape2D_oq4ka")
 
 [node name="Player" parent="." instance=ExtResource("2_2rctd")]
 unique_name_in_owner = true
@@ -135,6 +153,3 @@ scale = Vector2(1, 1)
 [node name="House17" parent="Houses" instance=ExtResource("1_8hrm1")]
 position = Vector2(1118, 1157)
 scale = Vector2(1, 1)
-
-[node name="Cat" parent="Houses" instance=ExtResource("5_ww7ep")]
-position = Vector2(1125, 317)

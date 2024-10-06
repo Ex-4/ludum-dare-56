@@ -44,7 +44,7 @@ func take_damage():
 	health-=1
 	%HUD.update_health(health)
 	if health <= 0:
-		pass
+		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 
 func update_food(num):
 	food += num

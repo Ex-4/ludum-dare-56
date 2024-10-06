@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://djo54bf52k7qs"]
+
+[ext_resource type="FontFile" uid="uid://bo6pw8nk0pcuh" path="res://Assets/Fonts/EightBitDragon-anqx.ttf" id="1_0htxt"]
+[ext_resource type="Script" path="res://Scripts/game_win.gd" id="1_nqbba"]
+
+[node name="game win" type="CanvasLayer"]
+script = ExtResource("1_nqbba")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -495.0
+offset_top = -70.5
+offset_right = 495.0
+offset_bottom = 70.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_0htxt")
+theme_override_font_sizes/font_size = 50
+text = "YOU SUCCESSFULLY SPREAD THE PLAGUE
+YOU WIN?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitButton" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -123.0
+offset_top = -57.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_0htxt")
+theme_override_font_sizes/font_size = 48
+text = "QUIT"
+
+[node name="RetryButton" type="Button" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -57.0
+offset_right = 306.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_0htxt")
+theme_override_font_sizes/font_size = 48
+text = "PLAY AGAIN"
+
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]

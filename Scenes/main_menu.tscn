@@ -1,0 +1,101 @@
+[gd_scene load_steps=3 format=3 uid="uid://xvrxu5gw0sym"]
+
+[ext_resource type="FontFile" uid="uid://bo6pw8nk0pcuh" path="res://Assets/Fonts/EightBitDragon-anqx.ttf" id="1_7gssn"]
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_twsuo"]
+
+[node name="main menu" type="CanvasLayer"]
+script = ExtResource("1_twsuo")
+
+[node name="tutorial" type="Node" parent="."]
+
+[node name="StartButton" type="Button" parent="tutorial"]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -176.0
+offset_top = -57.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_7gssn")
+theme_override_font_sizes/font_size = 48
+text = "START"
+
+[node name="BackButton" type="Button" parent="tutorial"]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -57.0
+offset_right = 142.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_7gssn")
+theme_override_font_sizes/font_size = 48
+text = "BACK"
+
+[node name="Label" type="Label" parent="tutorial"]
+visible = false
+offset_top = 41.0
+offset_right = 1030.0
+offset_bottom = 242.0
+theme_override_fonts/font = ExtResource("1_7gssn")
+theme_override_font_sizes/font_size = 64
+text = "Objective: infect all houses
+
+avoid cats"
+
+[node name="main" type="Node" parent="."]
+
+[node name="PlayButton" type="Button" parent="main"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.5
+offset_top = -36.5
+offset_right = 93.5
+offset_bottom = 36.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_7gssn")
+theme_override_font_sizes/font_size = 64
+text = "PLAY
+"
+
+[node name="QuitButton" type="Button" parent="main"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.0
+offset_top = 96.0
+offset_right = 81.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_7gssn")
+theme_override_font_sizes/font_size = 64
+text = "QUIT
+"
+
+[node name="MainTitle" type="Label" parent="main"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -421.0
+offset_top = 83.0
+offset_right = 424.0
+offset_bottom = 212.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_7gssn")
+theme_override_font_sizes/font_size = 128
+text = "PESTILENCE"
+
+[connection signal="pressed" from="tutorial/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="tutorial/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="main/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="main/QuitButton" to="." method="_on_quit_button_pressed"]
