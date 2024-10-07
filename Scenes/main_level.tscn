@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://c5pe45hnq76wg"]
+[gd_scene load_steps=13 format=4 uid="uid://c5pe45hnq76wg"]
 
 [ext_resource type="Texture2D" uid="uid://fri4ab3qkuqf" path="res://Assets/Spritesheets/town colors.png" id="1_1hsf7"]
 [ext_resource type="PackedScene" uid="uid://ijmr6ummvu8a" path="res://Scenes/house.tscn" id="1_8hrm1"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b1bo1qrs1cnh7" path="res://Assets/Sprites/well.png" id="3_ff6eq"]
 [ext_resource type="PackedScene" uid="uid://lc5glgte4gbf" path="res://Scenes/hud.tscn" id="3_minkm"]
 [ext_resource type="PackedScene" uid="uid://caykrd7oei02t" path="res://Scenes/cat.tscn" id="5_ww7ep"]
+[ext_resource type="AudioStream" uid="uid://gawi6npwy2bo" path="res://Assets/sfx/night ambience.mp3" id="7_i6i3v"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_jg512"]
 vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
@@ -65,7 +66,6 @@ position = Vector2(606.919, 287.788)
 unique_name_in_owner = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.0768358, 0.0768358, 0.0768358, 1)
 
 [node name="CatHandler" type="Node" parent="."]
@@ -165,3 +165,8 @@ position = Vector2(1728, 0)
 [node name="House3" parent="Houses" instance=ExtResource("1_8hrm1")]
 position = Vector2(384, -640)
 rotation = 1.5708
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_i6i3v")
+autoplay = true
+max_distance = 100000.0
