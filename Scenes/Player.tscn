@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnhejpbf2qwv1"]
+[gd_scene load_steps=9 format=3 uid="uid://dnhejpbf2qwv1"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_vgu8f"]
 [ext_resource type="Texture2D" uid="uid://jp2aqrix4w6x" path="res://Assets/Sprites/rata-1.png" id="2_3c0s7"]
+[ext_resource type="AudioStream" uid="uid://1y5mgqscyunc" path="res://Assets/sfx/squeeks.mp3" id="3_b3ogg"]
+[ext_resource type="AudioStream" uid="uid://m6c22kus0xk7" path="res://Assets/sfx/nibbling.mp3" id="4_3ldxp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n5uha"]
 radius = 32.5
@@ -66,3 +68,9 @@ position = Vector2(13.3333, 7.62939e-06)
 scale = Vector2(6.44792, 6.44792)
 energy = 0.53
 texture = SubResource("GradientTexture2D_408m1")
+
+[node name="Squeek" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_b3ogg")
+
+[node name="Eat" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_3ldxp")

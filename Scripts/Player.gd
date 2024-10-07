@@ -2,13 +2,14 @@ extends CharacterBody2D
 
 #signal health_depleted
 
-var health = 5.0
+var health = 0.0
+var max_health = 5.0
 var food = 0
 var house_inrange = false
 var speed = 200
 
 func _ready():
-	pass
+	health = max_health
 	%HUD.hide_prompt()
 	%HUD.set_health(health)
 
@@ -40,7 +41,16 @@ func _input(event):
 		obj.perform_action()
 	else:
 		%HUD.update_prompt("Hold E To Infect")
+	
+	if Input.is_action_just_pressed("heal") && health != max_health && food >= 20:
+		$Eat.play()
+		health += 1	
+		food -= 20
+		%HUD.update_health(health)
+		%HUD.update_food(-20)
+			
 func take_damage():
+	$Squeek.play()
 	health-=1
 	%HUD.update_health(health)
 	if health <= 0:

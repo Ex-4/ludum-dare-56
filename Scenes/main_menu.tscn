@@ -23,7 +23,6 @@ texture = ExtResource("3_1x36p")
 [node name="main" type="Node2D" parent="."]
 
 [node name="PlayButton" type="Button" parent="main"]
-anchors_preset = -1
 offset_left = 582.0
 offset_top = 257.0
 offset_right = 769.0
@@ -55,16 +54,44 @@ text = "QUIT
 
 [node name="tutorial" type="Node2D" parent="."]
 
+[node name="Label3" type="Label" parent="tutorial"]
+offset_left = 203.0
+offset_top = 225.0
+offset_right = 1143.0
+offset_bottom = 567.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_7gssn")
+theme_override_font_sizes/font_size = 54
+text = "Controls
+Hold E to Infect Houses
+press R to heal (req. 20 food)"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="tutorial"]
+offset_left = 208.0
+offset_top = 228.0
+offset_right = 1148.0
+offset_bottom = 570.0
+theme_override_colors/font_color = Color(0.505882, 0.168627, 0.0470588, 1)
+theme_override_fonts/font = ExtResource("1_7gssn")
+theme_override_font_sizes/font_size = 54
+text = "Controls
+Hold E to Infect Houses
+press R to heal (req. 20 food)"
+horizontal_alignment = 2
+vertical_alignment = 1
+
 [node name="StartButton" type="Button" parent="tutorial"]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 976.0
-offset_top = 591.0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = 928.0
+offset_top = 510.0
+offset_right = 1104.0
+offset_bottom = 567.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("1_7gssn")
@@ -75,38 +102,37 @@ text = "START"
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = 591.0
-offset_right = 142.0
-offset_bottom = 648.0
+offset_left = 725.0
+offset_top = 509.0
+offset_right = 867.0
+offset_bottom = 566.0
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("1_7gssn")
 theme_override_font_sizes/font_size = 48
 text = "BACK"
 
 [node name="Label2" type="Label" parent="tutorial"]
-offset_left = 137.0
-offset_top = 51.0
-offset_right = 1006.0
-offset_bottom = 393.0
+offset_left = 274.0
+offset_top = -105.0
+offset_right = 1143.0
+offset_bottom = 237.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_7gssn")
 theme_override_font_sizes/font_size = 54
 text = "Objective: infect all houses
-
 avoid cats"
 horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Label" type="Label" parent="tutorial"]
-offset_left = 142.0
-offset_top = 54.0
-offset_right = 1011.0
-offset_bottom = 396.0
+offset_left = 279.0
+offset_top = -102.0
+offset_right = 1148.0
+offset_bottom = 240.0
 theme_override_colors/font_color = Color(0.505882, 0.168627, 0.0470588, 1)
 theme_override_fonts/font = ExtResource("1_7gssn")
 theme_override_font_sizes/font_size = 54
 text = "Objective: infect all houses
-
 avoid cats"
 horizontal_alignment = 2
 vertical_alignment = 1

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c352tpp4coy1d"
+path="res://.godot/imported/footstep_snow_000.ogg-8b2c3786fc4a5d5472eb8db2f91e4b97.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/sfx/kenny impact/Audio/footstep_snow_000.ogg"
+dest_files=["res://.godot/imported/footstep_snow_000.ogg-8b2c3786fc4a5d5472eb8db2f91e4b97.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

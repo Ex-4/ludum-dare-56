@@ -59,12 +59,13 @@ shape = SubResource("CircleShape2D_oq4ka")
 
 [node name="Player" parent="." instance=ExtResource("2_2rctd")]
 unique_name_in_owner = true
-position = Vector2(1216, -128)
+position = Vector2(606.919, 287.788)
 
 [node name="HUD" parent="." instance=ExtResource("3_minkm")]
 unique_name_in_owner = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.0768358, 0.0768358, 0.0768358, 1)
 
 [node name="CatHandler" type="Node" parent="."]

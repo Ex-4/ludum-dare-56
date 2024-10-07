@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bvwadf6d58cx3"
+path="res://.godot/imported/handleCoins.ogg-42088568181d3abeb3412057f8a2f8cc.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/sfx/kenny rpg/Audio/handleCoins.ogg"
+dest_files=["res://.godot/imported/handleCoins.ogg-42088568181d3abeb3412057f8a2f8cc.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

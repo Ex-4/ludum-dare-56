@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cn6cp4w4nbq0p"
+path="res://.godot/imported/chop.ogg-746a6a074f2b1353ffb3117bb70d34d8.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/sfx/kenny rpg/Audio/chop.ogg"
+dest_files=["res://.godot/imported/chop.ogg-746a6a074f2b1353ffb3117bb70d34d8.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

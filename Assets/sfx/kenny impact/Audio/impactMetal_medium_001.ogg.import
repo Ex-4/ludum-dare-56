@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bkl1snqulxq04"
+path="res://.godot/imported/impactMetal_medium_001.ogg-d6b60a7de90f2aeae8f34a330bb89dfe.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/sfx/kenny impact/Audio/impactMetal_medium_001.ogg"
+dest_files=["res://.godot/imported/impactMetal_medium_001.ogg-d6b60a7de90f2aeae8f34a330bb89dfe.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

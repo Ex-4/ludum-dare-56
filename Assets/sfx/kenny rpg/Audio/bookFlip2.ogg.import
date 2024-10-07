@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b88jx5kfnobik"
+path="res://.godot/imported/bookFlip2.ogg-28bb2a24aaf89750e6ede97d180a319e.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/sfx/kenny rpg/Audio/bookFlip2.ogg"
+dest_files=["res://.godot/imported/bookFlip2.ogg-28bb2a24aaf89750e6ede97d180a319e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

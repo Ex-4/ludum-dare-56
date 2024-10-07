@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://by6388tvgabrw"
+path="res://.godot/imported/metalLatch.ogg-cf2f3246bbddd9de3ac80068bbb3317d.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/sfx/kenny rpg/Audio/metalLatch.ogg"
+dest_files=["res://.godot/imported/metalLatch.ogg-cf2f3246bbddd9de3ac80068bbb3317d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

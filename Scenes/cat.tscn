@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://caykrd7oei02t"]
+[gd_scene load_steps=17 format=3 uid="uid://caykrd7oei02t"]
 
 [ext_resource type="Script" path="res://Scripts/cat.gd" id="1_cw0y0"]
 [ext_resource type="Texture2D" uid="uid://dm4tgo23rdpbp" path="res://Assets/Sprites/cat.png" id="1_iqk8k"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/EnemyIdle.gd" id="3_aviwd"]
 [ext_resource type="Script" path="res://Scripts/EnemyFollow.gd" id="5_5e7p4"]
 [ext_resource type="Script" path="res://Scripts/EnemyAttack.gd" id="7_mk42v"]
+[ext_resource type="AudioStream" uid="uid://caejnt4s2whdw" path="res://Assets/sfx/angrycat.mp3" id="8_dnmhm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_luitd"]
 radius = 6.0
@@ -203,5 +204,10 @@ unique_name_in_owner = true
 target_position = Vector2(1000, 0)
 collision_mask = 15
 collide_with_areas = true
+
+[node name="Angry" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("8_dnmhm")
+volume_db = -10.0
 
 [connection signal="area_entered" from="Sprite2D/armPivot/HitBox" to="State Machine/attack" method="_on_hit_box_area_entered"]
