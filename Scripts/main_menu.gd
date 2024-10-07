@@ -1,15 +1,12 @@
 extends CanvasLayer
 
 func _ready():
-	for child in $tutorial.get_children():
-		child.hide()
+	$tutorial.hide()
 
 #	main menu section
 func _on_play_button_pressed():
-	for child in $main.get_children():
-		child.hide()	
-	for child in $tutorial.get_children():
-		child.show()
+	$main.hide()
+	$tutorial.show()
 
 
 func _on_quit_button_pressed():
@@ -23,7 +20,5 @@ func _on_start_button_pressed():
 
 
 func _on_back_button_pressed():
-	for child in $main.get_children():
-		child.show()	
-	for child in $tutorial.get_children():
-		child.hide()
+	$main.show()	
+	$tutorial.hide()

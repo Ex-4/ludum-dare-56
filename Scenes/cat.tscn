@@ -133,6 +133,7 @@ fill_to = Vector2(1, 0.097561)
 [node name="Cat" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
+collision_mask = 7
 script = ExtResource("1_cw0y0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
