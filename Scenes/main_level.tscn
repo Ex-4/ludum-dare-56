@@ -34,7 +34,7 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 0
-navigation_layer_0/layers = 1
+navigation_layer_0/layers = 8
 sources/0 = SubResource("TileSetAtlasSource_rqccc")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oq4ka"]
@@ -59,19 +59,18 @@ shape = SubResource("CircleShape2D_oq4ka")
 
 [node name="Player" parent="." instance=ExtResource("2_2rctd")]
 unique_name_in_owner = true
-position = Vector2(593.556, 326.483)
+position = Vector2(1216, -128)
 
 [node name="HUD" parent="." instance=ExtResource("3_minkm")]
 unique_name_in_owner = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
-color = Color(0.0772855, 0.0816375, 0.170721, 1)
+color = Color(0.0768358, 0.0768358, 0.0768358, 1)
 
 [node name="CatHandler" type="Node" parent="."]
 
 [node name="Cat" parent="CatHandler" instance=ExtResource("5_ww7ep")]
-position = Vector2(1380.15, 471.67)
+position = Vector2(128, 704)
 
 [node name="Cat2" parent="CatHandler" instance=ExtResource("5_ww7ep")]
 position = Vector2(103.673, -366.119)
@@ -80,7 +79,19 @@ position = Vector2(103.673, -366.119)
 position = Vector2(1244.09, -604.081)
 
 [node name="Cat4" parent="CatHandler" instance=ExtResource("5_ww7ep")]
-position = Vector2(180, 675.526)
+position = Vector2(1664, 448)
+
+[node name="Cat5" parent="CatHandler" instance=ExtResource("5_ww7ep")]
+position = Vector2(640, -256)
+
+[node name="Cat6" parent="CatHandler" instance=ExtResource("5_ww7ep")]
+position = Vector2(1984, -128)
+
+[node name="Cat7" parent="CatHandler" instance=ExtResource("5_ww7ep")]
+position = Vector2(-576, 0)
+
+[node name="Cat8" parent="CatHandler" instance=ExtResource("5_ww7ep")]
+position = Vector2(704, -1024)
 
 [node name="Houses" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -106,15 +117,15 @@ position = Vector2(1344, -960)
 rotation = 1.5708
 
 [node name="House9" parent="Houses" instance=ExtResource("1_8hrm1")]
-position = Vector2(1664, 192)
-rotation = 1.5708
-
-[node name="House19" parent="Houses" instance=ExtResource("1_8hrm1")]
 position = Vector2(1536, 832)
 rotation = 1.5708
 
-[node name="House21" parent="Houses" instance=ExtResource("1_8hrm1")]
+[node name="House19" parent="Houses" instance=ExtResource("1_8hrm1")]
 position = Vector2(1856, 576)
+rotation = 1.5708
+
+[node name="House21" parent="Houses" instance=ExtResource("1_8hrm1")]
+position = Vector2(1664, 192)
 rotation = 1.5708
 
 [node name="House2" parent="Houses" instance=ExtResource("1_8hrm1")]

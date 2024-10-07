@@ -1,10 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://iumt1y7a7ke2"]
+[gd_scene load_steps=4 format=3 uid="uid://iumt1y7a7ke2"]
 
 [ext_resource type="FontFile" uid="uid://bo6pw8nk0pcuh" path="res://Assets/Fonts/EightBitDragon-anqx.ttf" id="1_k4uy1"]
 [ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_xfcxc"]
+[ext_resource type="Texture2D" uid="uid://ctlfd5nm3f8v4" path="res://Assets/Images/bg1.png" id="2_6hwgy"]
 
 [node name="GameOver" type="CanvasLayer"]
 script = ExtResource("1_xfcxc")
+
+[node name="Bg1" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(578.063, 324.875)
+scale = Vector2(6.35486, 5.35208)
+texture = ExtResource("2_6hwgy")
+
+[node name="Label2" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -353.0
+offset_top = -270.0
+offset_right = 31.0
+offset_bottom = -205.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_k4uy1")
+theme_override_font_sizes/font_size = 64
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8
@@ -12,12 +38,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -192.0
-offset_top = -32.5
-offset_right = 192.0
-offset_bottom = 32.5
+offset_left = -347.0
+offset_top = -267.0
+offset_right = 37.0
+offset_bottom = -202.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.4, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_k4uy1")
 theme_override_font_sizes/font_size = 64
 text = "GAME OVER"
@@ -28,8 +55,10 @@ vertical_alignment = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -57.0
-offset_right = 176.0
+offset_left = 729.0
+offset_top = -393.0
+offset_right = 905.0
+offset_bottom = -336.0
 grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -43,8 +72,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -123.0
-offset_top = -57.0
+offset_left = -398.0
+offset_top = -319.0
+offset_right = -275.0
+offset_bottom = -262.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 4

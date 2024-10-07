@@ -19,7 +19,7 @@ colors = PackedColorArray(1, 1, 1, 1, 0.871795, 0.871795, 0.871795, 1, 0, 0, 0, 
 gradient = SubResource("Gradient_7f28p")
 fill = 1
 fill_from = Vector2(0.493902, 0.52439)
-fill_to = Vector2(0.146341, 0.530488)
+fill_to = Vector2(0.00854701, 0.525641)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 1
@@ -64,5 +64,5 @@ shape = SubResource("CapsuleShape2D_ummoe")
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(13.3333, 7.62939e-06)
 scale = Vector2(6.44792, 6.44792)
-energy = 0.8
+energy = 0.53
 texture = SubResource("GradientTexture2D_408m1")

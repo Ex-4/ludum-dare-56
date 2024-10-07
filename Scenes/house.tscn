@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ijmr6ummvu8a"]
+[gd_scene load_steps=7 format=3 uid="uid://ijmr6ummvu8a"]
 
 [ext_resource type="Script" path="res://Scripts/house.gd" id="1_fc5e5"]
 [ext_resource type="Texture2D" uid="uid://bvo3nqqpfsaj" path="res://Assets/Sprites/house v3.png" id="2_rdxex"]
@@ -6,6 +6,15 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_knmkd"]
 size = Vector2(85.3333, 256)
+
+[sub_resource type="Gradient" id="Gradient_airpj"]
+offsets = PackedFloat32Array(0.64966, 0.792517, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.873786, 0.873786, 0.873786, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1upwh"]
+gradient = SubResource("Gradient_airpj")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
 
 [node name="House" type="StaticBody2D"]
 z_index = 1
@@ -30,3 +39,9 @@ centered = false
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(64, 192)
+scale = Vector2(2, 6)
+energy = 0.63
+texture = SubResource("GradientTexture2D_1upwh")
