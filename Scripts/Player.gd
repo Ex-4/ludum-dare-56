@@ -29,10 +29,11 @@ func _physics_process(delta):
 	
 	#	rotating the player sprite when moving
 	if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right") or Input.is_action_pressed("move_up") or Input.is_action_pressed("move_down"):
-		rotation = atan2(velocity.y, velocity.x)
+		if not %RayCast2D.is_colliding():
+			rotation = atan2(velocity.y, velocity.x)		
 			
-	velocity = direction * speed		
-	move_and_slide()
+		velocity = direction * speed		
+		move_and_slide()
 
 func _input(event):
 	if Input.is_action_pressed("interact") && house_inrange:
